@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaConceptoAutenticacion", "PruebaConceptoAutenticacion\PruebaConceptoAutenticacion.csproj", "{972097EB-29A2-4E88-BBA4-1D701E1F71BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_REST", "API_REST\API_REST.csproj", "{F06E1223-D534-4449-9E8D-7DFFF7D3542B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{972097EB-29A2-4E88-BBA4-1D701E1F71BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{972097EB-29A2-4E88-BBA4-1D701E1F71BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{972097EB-29A2-4E88-BBA4-1D701E1F71BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{972097EB-29A2-4E88-BBA4-1D701E1F71BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
