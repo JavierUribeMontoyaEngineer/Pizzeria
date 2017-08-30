@@ -31,11 +31,12 @@ namespace WebApplication4.Controllers
 
         [AllowAnonymous]
         public ActionResult Token()
-        {
-            var payload = new Dictionary<string, string>()
+        {         
+            var payload = new Dictionary<string, object>()
             {
-                {"sub", "123456780090"},
-                {"name", "John"}
+                {"sub", "session"},
+                {"user","Juan" },
+                {"exp", DateTime.Now.AddHours(1)}
             };
             var token = TokenJWTService.Encode(payload);
             var s = new StringBuilder("window.token='");

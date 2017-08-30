@@ -20,7 +20,7 @@ namespace WebApplication4.Controllers
         }
 
 
-        public static string Encode(Dictionary<string, string> payload)
+        public static string Encode(Dictionary<string, object> payload)
         {
             //var secret = RandomString(HMAC_LENGTH);
             var secret = "secret";
@@ -28,6 +28,7 @@ namespace WebApplication4.Controllers
             IJsonSerializer serializer = new JsonNetSerializer();
             IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
             IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
+            
             var token = encoder.Encode(payload, secret);
             return token;
         }
