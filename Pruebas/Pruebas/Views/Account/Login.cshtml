@@ -15,42 +15,28 @@
                 <h4>Use una cuenta local para iniciar sesión.</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div ng-app="formulario">
-                    <div layout-gt-xs="row">
-                        <md-input-container class="md-block" flex-gt-xs>
-                            <label>Company (Disabled)</label>
-                            <input ng-model="user.company">
-                        </md-input-container>
-
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="checkbox">
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    @Html.LabelFor(m => m.RememberMe)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
+                <md-content layout-padding>
+                    <div ng-app="formulario">
+                        <div layout-gt-xs="row">
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label for="email">Correo electrónico</label>
+                                <input name="email" type="email" ng-model="user.email">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label for="pass">Contraseña</label>
+                                <input name="pass" type="password" ng-model="user.password">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <md-checkbox name="rem" ng-model="user.remember">
+                                    ¿Recordar cuenta?
+                                </md-checkbox>
+                            </md-input-container>
+                            <md-container class="md-block" flex-gt-xs>
                                 <input type="submit" value="Iniciar sesión" class="btn btn-default" />
-                            </div>
+                            </md-container>
                         </div>
                     </div>
-                </div>
+                </md-content>
 
                 <p>
                     @Html.ActionLink("Registrar como nuevo usuario", "Register")

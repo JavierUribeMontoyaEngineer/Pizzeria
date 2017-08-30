@@ -11,7 +11,9 @@
             city: 'Mountain View',
             state: 'CA',
             biography: 'Loves kittens, snowboarding, and can type at 130 WPM.\n\nAnd rumor has it she bouldered up Castle Craig!',
-            postalCode: '94043'
+            postalCode: '94043',
+            password: '',
+            remember: ''
         };
 
         $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
