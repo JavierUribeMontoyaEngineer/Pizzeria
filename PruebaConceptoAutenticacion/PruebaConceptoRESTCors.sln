@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_REST", "API_REST\API_REST.csproj", "{F06E1223-D534-4449-9E8D-7DFFF7D3542B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationFrontend", "ApplicationFrontend\ApplicationFrontend.csproj", "{46E6E77C-5F62-4C15-A9BA-760C8F45506A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E6E77C-5F62-4C15-A9BA-760C8F45506A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E6E77C-5F62-4C15-A9BA-760C8F45506A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E6E77C-5F62-4C15-A9BA-760C8F45506A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E6E77C-5F62-4C15-A9BA-760C8F45506A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
