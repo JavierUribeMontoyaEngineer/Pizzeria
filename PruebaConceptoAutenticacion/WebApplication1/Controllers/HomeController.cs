@@ -28,5 +28,11 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+
+       public ActionResult Token()
+        {
+            return JavaScript("window.token = 'xxx'");
+            //return View();
+        }
     }
 }
