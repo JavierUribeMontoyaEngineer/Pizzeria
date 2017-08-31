@@ -14,17 +14,16 @@
                 @Html.AntiForgeryToken()
                 <h4>Use una cuenta local para iniciar sesión.</h4>
                 <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <md-content layout-padding>
-                    <div ng-app="formulario">
+                    <div ng-app="loginForm" ng-init="model.email='@Model.Email'">
                         <div layout-gt-xs="row">
                             <md-input-container class="md-block" flex-gt-xs>
                                 <label for="email">Correo electrónico</label>                               
-                                <input required name="email" type="email" ng-model="email" value="@Model.Email">
+                                <input required name="email" type="email" ng-model="model.email">                                
                             </md-input-container>
                             <md-input-container class="md-block" flex-gt-xs>
                                 <label for="pass">Contraseña</label>                               
-                                <input required name="password" type="password" ng-model="password">
+                                <input required name="password" type="password" ng-model="model.password">
                             </md-input-container>
                             <md-container class="md-block" flex-gt-xs>
                                 <md-button type="submit" class="md-raised md-primary">Iniciar sesión</md-button>
@@ -32,10 +31,12 @@
                         </div>
                     </div>
                 </md-content>
-
-                <p>
-                    @Html.ActionLink("Registrar como nuevo usuario", "Register")
-                </p>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <md-content layout-padding>
+                    <md.container class="md-block" flex-gt-xs>
+                        <md-button type="submit" class="md-raised md-primary">@Html.ActionLink("Registrar como nuevo usuario", "Register")</md-button>
+                    </md.container>                    
+                </md-content>
             }
         </section>
     </div>
@@ -47,5 +48,5 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/login.js")
 }

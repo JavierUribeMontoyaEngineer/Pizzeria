@@ -1,2 +1,2 @@
 ﻿angular
-    .module('formulario', ['ngMaterial', 'ngMessages'])    
+    .module('loginForm', ['ngMaterial', 'ngMessages'])    
