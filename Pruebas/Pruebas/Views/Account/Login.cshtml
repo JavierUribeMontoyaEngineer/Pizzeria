@@ -19,20 +19,15 @@
                     <div ng-app="formulario">
                         <div layout-gt-xs="row">
                             <md-input-container class="md-block" flex-gt-xs>
-                                <label for="email">Correo electrónico</label>
-                                <input name="email" type="email" ng-model="user.email">
+                                <label for="email">Correo electrónico</label>                               
+                                <input required name="email" type="email" ng-model="email" value="@Model.Email">
                             </md-input-container>
                             <md-input-container class="md-block" flex-gt-xs>
-                                <label for="pass">Contraseña</label>
-                                <input name="pass" type="password" ng-model="user.password">
-                            </md-input-container>
-                            <md-input-container class="md-block" flex-gt-xs>
-                                <md-checkbox name="rem" ng-model="user.remember">
-                                    ¿Recordar cuenta?
-                                </md-checkbox>
+                                <label for="pass">Contraseña</label>                               
+                                <input required name="password" type="password" ng-model="password">
                             </md-input-container>
                             <md-container class="md-block" flex-gt-xs>
-                                <input type="submit" value="Iniciar sesión" class="btn btn-default" />
+                                <md-button type="submit" class="md-raised md-primary">Iniciar sesión</md-button>
                             </md-container>
                         </div>
                     </div>
@@ -41,10 +36,6 @@
                 <p>
                     @Html.ActionLink("Registrar como nuevo usuario", "Register")
                 </p>
-                @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
-                    <p>
-                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
-                    </p>*@
             }
         </section>
     </div>
