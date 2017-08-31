@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Services
 {
-    public interface IPizzaRepository:IGenericRepository<Pizza>, IDisposable
+    class Program
     {
+        static void Main(string[] args)
+        {
+
+
+        }
     }
 }

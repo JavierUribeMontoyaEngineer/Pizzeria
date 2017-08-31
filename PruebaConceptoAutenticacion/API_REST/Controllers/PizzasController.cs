@@ -1,41 +1,25 @@
 ﻿using API_REST.Models;
 using PruebaConceptoAutenticacion.Cors;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Model;
 
 namespace API_REST.Controllers
 {
     [AllowCrossSite]
     public class PizzasController : ApiController
     {
-        //TODO eliminar este metodo y usar el de la BD real
-        private List<Pizza> getPizzasBD()
-        {
-            var pizzas = new List<Pizza>()
-            {
-                new Pizza()
-                {
-                    Id = 1,
-                    Name = "Margarita"
-
-                },
-                new Pizza()
-                {
-                    Id = 2,
-                    Name = "Napolitana"
-                }
-            };
-            return pizzas;
-        }
-        
+        public PizzaService _pizzaService{ get; set; }
         // GET api/pizzas
         public IEnumerable<Pizza> Get()
         {        
-            return getPizzasBD();
+            var pizzas = _pizzaService.GetAllPizzas();
+            return pizzas;
         }
 
         // GET api/pizzas/2

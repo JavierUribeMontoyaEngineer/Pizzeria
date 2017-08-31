@@ -51,8 +51,6 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="Ingredient.cs" />
-    <Compile Include="IPizzaRepository.cs" />
-    <Compile Include="IUserRepository.cs" />
     <Compile Include="Pizza.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
