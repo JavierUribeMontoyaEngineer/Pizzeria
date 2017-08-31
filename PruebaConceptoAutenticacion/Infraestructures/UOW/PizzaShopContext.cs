@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeFirst
+namespace Infraestructures.UOW
 {
-    public class PizzaContext : DbContext
+    public class PizzaShopContext : DbContext
     {
-        public DbSet<Pizza> Pizzas{ get; set; }
+        public DbSet<Pizza> Pizzas { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public interface IPizzaRepository
+    public interface IPizzaRepository:IGenericRepository<Pizza>, IDisposable
     {
     }
 }

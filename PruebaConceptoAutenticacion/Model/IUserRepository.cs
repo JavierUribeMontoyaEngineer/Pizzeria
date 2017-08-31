@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public interface IUserRepository
+    public interface IUserRepository:IGenericRepository<User>, IDisposable
     {
     }
 }
