@@ -2,9 +2,13 @@
     ViewBag.Title = "Toolbar";
 }
 <div ng-app="navBarDemoBasicUsage">
-    <div layout="column" layout-fill>
+    <div ng-controller="AppCtrl" layout="column" layout-fill>
         <md-toolbar>
             <div class="md-toolbar-tools">
+                <md-button ng-md-icon="menu" ng-click="toggleLeft()" hide-gt-md>
+                    <i class="material-icons">menu</i>
+                </md-button>
+
                 <h2 md-truncate flex>@Html.ActionLink("Pizzeria", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h2>
                 <md-button>
                     @Html.ActionLink("Inicio", "Index", "Home")
