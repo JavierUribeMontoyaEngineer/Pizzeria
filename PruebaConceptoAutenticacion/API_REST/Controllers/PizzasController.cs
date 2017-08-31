@@ -1,5 +1,4 @@
-﻿using API_REST.Models;
-using PruebaConceptoAutenticacion.Cors;
+﻿using PruebaConceptoAutenticacion.Cors;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -14,34 +13,59 @@ namespace API_REST.Controllers
     [AllowCrossSite]
     public class PizzasController : ApiController
     {
-        public PizzaService _pizzaService{ get; set; }
+        public PizzaService _pizzaService = new PizzaService();
+
+        private List<Pizza> getPizzasBD()
+        {
+           
+            var pizzas = new List<Pizza>()
+            {               new Pizza()
+                {
+                    Name = "Margarita",
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient{Name = "queso"}
+                    }
+                },
+                new Pizza()
+                {
+                    Name = "Napolitana",
+                    Ingredients = new List<Ingredient>
+                    {
+                        new Ingredient{Name = "queso"}
+                    }
+               }
+            };
+            return pizzas;
+        }
+
         // GET api/pizzas
         public IEnumerable<Pizza> Get()
-        {        
-            var pizzas = _pizzaService.GetAllPizzas();
-            return pizzas;
+        {
+            return getPizzasBD();
         }
 
         // GET api/pizzas/2
         public Pizza Get(int id)
         {
-            var pizzas = getPizzasBD().Where(p => p.Id == id);
-            return pizzas.ToList<Pizza>()[0];
+            return _pizzaService.GetPizza(id);
         }
 
         // POST api/pizzas
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Pizza pizza)
         {
+            _pizzaService.CreatePizza(pizza);
         }
 
         // PUT api/pizzas/2
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Pizza pizza)
         {
+            _pizzaService.Update(pizza);
         }
 
         // DELETE api/pizzas/2
-        public void Delete(int id)
-        {
-        }
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

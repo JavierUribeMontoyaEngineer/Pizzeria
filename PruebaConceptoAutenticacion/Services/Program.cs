@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,13 @@ namespace Services
         static void Main(string[] args)
         {
 
+            var service = new PizzaService();
+
+            var pizzas = service.GetAllPizzas();
+            foreach (var pizza in pizzas)
+            {
+                Console.WriteLine(pizza.Name);
+            }
 
         }
     }
