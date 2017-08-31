@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_REST", "API_REST\API_REST.csproj", "{F06E1223-D534-4449-9E8D-7DFFF7D3542B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTProject", "WebApplication4\JWTProject.csproj", "{C3CAE170-4F4B-4A24-9412-0552E8F44C9C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06E1223-D534-4449-9E8D-7DFFF7D3542B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3CAE170-4F4B-4A24-9412-0552E8F44C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3CAE170-4F4B-4A24-9412-0552E8F44C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3CAE170-4F4B-4A24-9412-0552E8F44C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3CAE170-4F4B-4A24-9412-0552E8F44C9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
