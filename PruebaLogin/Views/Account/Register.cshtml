@@ -1,0 +1,44 @@
+﻿@model PruebaLogin.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+<md-content class="row">
+    <md-content layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form">
+        <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+            <h2>@ViewBag.Title.</h2>
+            <section id="loginForm">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4>Cree una cuenta nueva.</h4>
+                        <hr />
+                        <md-content layout-padding>
+                            <div ng-app="registerForm" ng-init="model.email='@Model.Email'">
+                                <div layout-gt-xs="row">
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label for="email">Correo electrónico</label>
+                                        <input required name="email" type="email" ng-model="model.email">
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label for="pass">Contraseña</label>
+                                        <input required name="password" type="password" ng-model="model.password">
+                                    </md-input-container>
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label for="pass">Confirmar Contraseña</label>
+                                        <input required name="password" type="password" ng-model="model.confirm">
+                                    </md-input-container>
+                                    <md-container class="md-block" flex-gt-xs>
+                                        <md-button type="submit" class="md-raised md-primary">Registrarse</md-button>
+                                    </md-container>
+                                </div>
+                            </div>
+                        </md-content>
+                }
+                </section>
+           </md-card>
+        </md-content>
+    </md-content>
+
+    @*@section Scripts {
+       @Scripts.Render("~/Scripts/register.js")
+    }*@
