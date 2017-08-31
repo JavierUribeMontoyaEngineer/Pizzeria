@@ -1,4 +1,6 @@
-﻿@model Pruebas.Models.RegisterViewModel
+﻿@using Pruebas.Models
+
+@model RegisterViewModel
 @{
     ViewBag.Title = "Registrarse";
 }
@@ -17,7 +19,7 @@
                 <div layout-gt-xs="row">
                     <md-input-container class="md-block" flex-gt-xs>
                         <label for="email">Correo electrónico</label>
-                        <input required name="email" type="email" ng-model="model.email" min-lenght="10" maxlength="100" ng-pattern="^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$">
+                        <input required name="email" type="email" ng-model="model.email" min-lenght="10" maxlength="100" ng-pattern="'^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$'">
                         <div ng-messages="registerForm.email.$error" role="alert">
                             <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
                                 Tu correo debe tener entre 10 y 100 caracteres y debe parecerse a
