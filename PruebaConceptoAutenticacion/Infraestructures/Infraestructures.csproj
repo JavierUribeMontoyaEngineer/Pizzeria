@@ -52,6 +52,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="UOW\IUow.cs" />
     <Compile Include="UOW\PizzaShopContext.cs" />
     <Compile Include="UOW\UnitOfWork.cs" />
   </ItemGroup>

@@ -8,9 +8,23 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class PizzaService : IDisposable
+    public class BaseService:IDisposable
     {
-        private UnitOfWork _unitOfWork { get; set; }
+        readonly IDisposable _dispose;
+        public BaseService(IDisposable dispose)
+        {
+
+        }
+
+        public void Dispose()
+        {
+            _dispose.Dispose();
+        }
+    }
+    public class PizzaService : BaseService()
+    {
+        private readonly UnitOfWork _unitOfWork;
+        
 
         public PizzaService()
         {
@@ -38,9 +52,6 @@ namespace Services
             _unitOfWork.PizzaRepository.Update(pizzaUpdate);
         }
 
-        public void Dispose()
-        {
-            _unitOfWork.Dispose();
-        }
+        
     }
 }

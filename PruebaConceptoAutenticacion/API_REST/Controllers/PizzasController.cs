@@ -10,6 +10,15 @@ using Model;
 
 namespace API_REST.Controllers
 {
+
+    public class MyController :ApiController
+    {
+            
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+    }
     [AllowCrossSite]
     public class PizzasController : ApiController
     {
@@ -61,6 +70,11 @@ namespace API_REST.Controllers
         public void Put(int id, [FromBody]Pizza pizza)
         {
             _pizzaService.Update(pizza);
+        }
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            
         }
 
         // DELETE api/pizzas/2
