@@ -63,6 +63,16 @@ namespace PruebaLogin
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            app.UseFacebookAuthentication(
+              appId: "281635548988967",
+              appSecret: "cd4872b6ea66443928d1087f6427599e");
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "395448750613-qg9hasuadvcscfnb7durdfturetq3u7i.apps.googleusercontent.com",
+                ClientSecret = "ARwZApGIyjMgbz-UyCPl-yIv"
+            });
+
         }
     }
 }

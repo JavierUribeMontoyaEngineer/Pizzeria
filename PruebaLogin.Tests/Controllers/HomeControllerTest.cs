@@ -26,29 +26,15 @@ namespace PruebaLogin.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void RegisterGivenNull()
         {
             // Arrange
-            HomeController controller = new HomeController();
-
+            var controller = new AccountController();
+        
             // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
+            var result = controller.Login("") as ViewResult;
             Assert.IsNotNull(result);
         }
+
     }
 }
