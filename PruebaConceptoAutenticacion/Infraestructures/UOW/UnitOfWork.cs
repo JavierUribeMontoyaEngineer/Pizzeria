@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Infraestructures.UOW
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable, IUow
     {
         private PizzaShopContext context = new PizzaShopContext();
         private GenericRepository<Pizza> _pizzaRepository;
         private GenericRepository<User> _userRepository;
         private bool _disposed = false;
+        
 
         public GenericRepository<Pizza> PizzaRepository
         {
@@ -59,6 +61,16 @@ namespace Infraestructures.UOW
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public int SaveChanges()
+        {
+            context.SaveChanges();
+        }
+
+        public IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        {
+            return context.Set<TEntity>();
         }
     }
 }
