@@ -41,6 +41,7 @@ namespace Services
         public void Update(Pizza pizzaUpdate)
         {
             _unitOfWork.Set<Pizza>().Attach(pizzaUpdate);
+            //_unitOfWork.En
             _pizzaShopContext.Entry(pizzaUpdate).State = EntityState.Modified;
 
         }
