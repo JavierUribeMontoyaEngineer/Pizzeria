@@ -190,6 +190,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IPizzasController.cs" />
     <Compile Include="Controllers\PizzasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -271,6 +273,10 @@
     <ProjectReference Include="..\Infraestructures\Infraestructures.csproj">
       <Project>{6B4F2137-A170-4702-8A7C-412A9F211004}</Project>
       <Name>Infraestructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{2e46c170-2305-4c96-8ee6-9974792c62cc}</Project>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{0DC5888E-364F-4954-A1C8-7A7E206A3F21}</Project>

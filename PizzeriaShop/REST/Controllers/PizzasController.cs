@@ -8,19 +8,16 @@ using System.Web.Http;
 using Model;
 using Infraestructures.UOW;
 
-namespace API_REST.Controllers
+namespace REST.Controllers
 {
-    public class PizzasController : ApiController
+    public class PizzasController : ApiController, IPizzasController
     {
-        public PizzaService _pizzaService { get; set; }
+        public IPizzaService _pizzaService { get; set; }
 
-        public PizzasController()
+        public PizzasController(IPizzaService pizzaService)
         {
-            var context = new PizzaShopContext();
-            var iuow = new UnitOfWork();
-           _pizzaService = new PizzaService(context, iuow);
-
-            var pizza1 = new Pizza()
+            _pizzaService = pizzaService;
+           var pizza1 = new Pizza()
             {
                 Name = "Margarita",
                 Ingredients = new List<Ingredient>
@@ -54,10 +51,6 @@ namespace API_REST.Controllers
         {
             _pizzaService.Update(pizza);
         }
-
-        // DELETE api/pizzas/2
-        //public void Delete(int id)
-        //{
-        //}
+     
     }
 }

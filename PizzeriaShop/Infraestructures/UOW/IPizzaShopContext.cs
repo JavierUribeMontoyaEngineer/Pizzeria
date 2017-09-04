@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Infraestructures.UOW
 {
-    public class PizzaShopContext : DbContext, IPizzaShopContext
+    public interface IPizzaShopContext
     {
-        public DbSet<Pizza> Pizzas { get; set; }
-        public DbSet<User> Users { get; set; }
+        DbSet<Pizza> Pizzas { get; set; }
+        DbSet<User> Users { get; set; }
     }
 }

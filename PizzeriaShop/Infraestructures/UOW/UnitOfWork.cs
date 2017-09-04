@@ -10,26 +10,32 @@ namespace Infraestructures.UOW
 {
     public class UnitOfWork : IUow
     {
-        private PizzaShopContext context = new PizzaShopContext();      
+        private PizzaShopContext _context;
+
+
+        public UnitOfWork(PizzaShopContext context)
+        {
+            _context = context;
+        }
 
         public int SaveChanges()
         {
-            return context.SaveChanges();
+            return _context.SaveChanges();
         }
 
         public IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
-            return context.Set<TEntity>();
+            return _context.Set<TEntity>();
         }
 
         public void SetModified<TEntity>(TEntity entity) where TEntity : class
         {
-            context.Entry<TEntity>(entity).State = EntityState.Modified;
+            _context.Entry<TEntity>(entity).State = EntityState.Modified;
         }
 
         public void Dispose()
         {
-            context.Dispose();
+            _context.Dispose();
         }
 
     }
