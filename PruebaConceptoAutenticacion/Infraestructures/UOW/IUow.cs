@@ -12,12 +12,5 @@ namespace Infraestructures.UOW
         int SaveChanges();
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
     }
-    public class UOW<T>
-    {
-        public UOW(IUow uow)
-        {
-            this.Respository = uow.Set<T>();
-        }
-        public IDbSet<T> Respository {get;privat set; }
-    }
+   
 }
