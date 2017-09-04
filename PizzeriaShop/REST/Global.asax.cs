@@ -34,7 +34,6 @@ namespace REST
             //El resto se registran manualmente
             builder.Register(c => new PizzaService()).As<IPizzaService>().InstancePerRequest();
 
-
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);

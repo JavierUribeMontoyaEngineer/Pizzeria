@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    interface IPizzaService
+    public interface IPizzaService
     {
         void CreatePizza(Pizza pizza);
         Pizza GetPizza(int id);
