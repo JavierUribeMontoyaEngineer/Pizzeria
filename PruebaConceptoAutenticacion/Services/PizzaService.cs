@@ -2,56 +2,48 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Services
 {
-    public class BaseService:IDisposable
-    {
-        readonly IDisposable _dispose;
-        public BaseService(IDisposable dispose)
-        {
-
-        }
-
-        public void Dispose()
-        {
-            _dispose.Dispose();
-        }
-    }
-    public class PizzaService : BaseService()
+    
+    public class PizzaService : BaseService
     {
         private readonly UnitOfWork _unitOfWork;
-        
+        private readonly PizzaShopContext _pizzaShopContext;
 
-        public PizzaService()
+        public PizzaService(PizzaShopContext context, UnitOfWork unitOfWork) : base(context)
         {
-            _unitOfWork = new UnitOfWork();
+            _pizzaShopContext = context;
+            _unitOfWork = unitOfWork;
         }
 
         public void CreatePizza(Pizza pizza)
         {
-            _unitOfWork.PizzaRepository.Insert(pizza);
-            _unitOfWork.Save();
+            _unitOfWork.Set<Pizza>().Add(pizza);
+            _unitOfWork.SaveChanges();
         }
 
         public Pizza GetPizza(int id)
         {
-            return _unitOfWork.PizzaRepository.GetByID(id);
+            return _unitOfWork.Set<Pizza>().Find(id);
         }
 
         public IEnumerable<Pizza> GetAllPizzas()
         {
-            return _unitOfWork.PizzaRepository.Get(includeProperties: "Pizza");
+            IQueryable<Pizza> query = _unitOfWork.Set<Pizza>();
+            return query.ToList();
         }
 
         public void Update(Pizza pizzaUpdate)
         {
-            _unitOfWork.PizzaRepository.Update(pizzaUpdate);
+            _unitOfWork.Set<Pizza>().Attach(pizzaUpdate);
+            _pizzaShopContext.Entry(pizzaUpdate).State = EntityState.Modified;
+
         }
 
-        
     }
 }
