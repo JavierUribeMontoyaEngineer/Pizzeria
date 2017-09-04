@@ -257,6 +257,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infraestructures\Infraestructures.csproj">
+      <Project>{6B4F2137-A170-4702-8A7C-412A9F211004}</Project>
+      <Name>Infraestructures</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{2E46C170-2305-4C96-8EE6-9974792C62CC}</Project>
       <Name>Model</Name>

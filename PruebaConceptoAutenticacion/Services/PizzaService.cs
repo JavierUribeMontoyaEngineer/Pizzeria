@@ -12,10 +12,10 @@ namespace Services
     
     public class PizzaService : BaseService
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUow _unitOfWork;
         private readonly PizzaShopContext _pizzaShopContext;
 
-        public PizzaService(PizzaShopContext context, UnitOfWork unitOfWork) : base(context)
+        public PizzaService(PizzaShopContext context, IUow unitOfWork) : base(context)
         {
             _pizzaShopContext = context;
             _unitOfWork = unitOfWork;

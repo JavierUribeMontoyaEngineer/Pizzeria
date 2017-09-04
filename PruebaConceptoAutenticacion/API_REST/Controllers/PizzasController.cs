@@ -7,13 +7,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Model;
+using Infraestructures.UOW;
 
 namespace API_REST.Controllers
 {
 
-    public class MyController :ApiController
+    public class MyController : ApiController
     {
-            
+
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
@@ -22,36 +23,41 @@ namespace API_REST.Controllers
     [AllowCrossSite]
     public class PizzasController : ApiController
     {
-        public PizzaService _pizzaService = new PizzaService();
-
-        private List<Pizza> getPizzasBD()
+        private PizzaService _pizzaService { get; set; }
+        public PizzasController()
         {
-           
-            var pizzas = new List<Pizza>()
-            {               new Pizza()
-                {
-                    Name = "Margarita",
-                    Ingredients = new List<Ingredient>
-                    {
-                        new Ingredient{Name = "queso"}
-                    }
-                },
-                new Pizza()
-                {
-                    Name = "Napolitana",
-                    Ingredients = new List<Ingredient>
-                    {
-                        new Ingredient{Name = "queso"}
-                    }
-               }
-            };
-            return pizzas;
+            var context = new PizzaShopContext();
+            var iuow = new UnitOfWork();
+            _pizzaService = new PizzaService(context, iuow);
         }
+        //private List<Pizza> getPizzasBD()
+        //{
+
+        //    var pizzas = new List<Pizza>()
+        //    {               new Pizza()
+        //        {
+        //            Name = "Margarita",
+        //            Ingredients = new List<Ingredient>
+        //            {
+        //                new Ingredient{Name = "queso"}
+        //            }
+        //        },
+        //        new Pizza()
+        //        {
+        //            Name = "Napolitana",
+        //            Ingredients = new List<Ingredient>
+        //            {
+        //                new Ingredient{Name = "queso"}
+        //            }
+        //       }
+        //    };
+        //    return pizzas;
+        //}
 
         // GET api/pizzas
         public IEnumerable<Pizza> Get()
         {
-            return getPizzasBD();
+            return _pizzaService.GetAllPizzas();
         }
 
         // GET api/pizzas/2
@@ -74,7 +80,7 @@ namespace API_REST.Controllers
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            
+
         }
 
         // DELETE api/pizzas/2
