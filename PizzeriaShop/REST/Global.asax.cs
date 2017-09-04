@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using Infraestructures.UOW;
+using Model;
 using REST.Controllers;
 using Services;
 using System;
@@ -34,12 +35,14 @@ namespace REST
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             //El resto se registran manualmente
+            builder.Register(c => new Pizza(Guid.NewGuid())).InstancePerRequest();
             builder.Register(c => new PizzaShopContext()).As<IPizzaShopContext>().InstancePerRequest();
             builder.RegisterType<UnitOfWork>().InstancePerRequest();
             builder.RegisterType<PizzaService>().InstancePerRequest();
             builder.Register(c => new PizzaService(new UnitOfWork(new PizzaShopContext()))).As<IPizzaService>().InstancePerRequest();
-
             builder.RegisterType<PizzasController>().InstancePerRequest();
+
+
 
 
 

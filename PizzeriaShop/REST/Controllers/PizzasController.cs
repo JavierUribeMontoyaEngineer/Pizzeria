@@ -16,16 +16,7 @@ namespace REST.Controllers
 
         public PizzasController(IPizzaService pizzaService)
         {
-            _pizzaService = pizzaService;
-           var pizza1 = new Pizza()
-            {
-                Name = "Margarita",
-                Ingredients = new List<Ingredient>
-                    {
-                        new Ingredient{Name = "queso"}
-                    }
-            };
-            _pizzaService.CreatePizza(pizza1);
+            _pizzaService = pizzaService;          
         }
 
         // GET api/pizzas

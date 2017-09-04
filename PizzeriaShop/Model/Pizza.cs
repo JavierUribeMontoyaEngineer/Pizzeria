@@ -14,7 +14,12 @@ namespace Model
 
         public Pizza()
         {
-            Id = Guid.NewGuid();
+            Ingredients = new List<Ingredient>();
+        }
+
+        public Pizza(Guid guid)
+        {
+            Id = guid;
         }
 
         [NotMapped]
