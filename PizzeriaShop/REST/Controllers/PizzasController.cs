@@ -41,7 +41,7 @@ namespace API_REST.Controllers
         // GET api/pizzas
         public IEnumerable<Pizza> Get()
         {
-            return getPizzasBD();
+            return _pizzaService.GetAllPizzas();
         }
 
         // GET api/pizzas/2
