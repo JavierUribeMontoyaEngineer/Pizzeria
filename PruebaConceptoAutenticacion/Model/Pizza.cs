@@ -11,6 +11,12 @@ namespace Model
         public string Photo { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public List<Comment> Comments { get; set; }
+
+        public Pizza()
+        {
+            Id = Guid.NewGuid();
+        }
+
         [NotMapped]
         public Decimal Price
         {

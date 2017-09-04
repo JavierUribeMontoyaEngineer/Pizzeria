@@ -17,8 +17,6 @@ namespace Model
         {
             _pizzaShopContext = pizzaShopContext;
             _dbSet = pizzaShopContext.Set<TEntity>();
-
-            IUow xxx = new PizzaShopContext();
         }
 
         public virtual IEnumerable<TEntity> Get(

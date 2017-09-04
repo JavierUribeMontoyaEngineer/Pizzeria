@@ -9,5 +9,10 @@ namespace Model
         public string Name { get; set; }
         public Decimal Price { get; set; }
 
+        public Ingredient()
+        {
+            Id = Guid.NewGuid();
+        }
+
     }
 }

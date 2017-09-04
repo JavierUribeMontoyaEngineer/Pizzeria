@@ -8,14 +8,14 @@ using System.Data.Entity;
 
 namespace Infraestructures.UOW
 {
-    public class UnitOfWork :  IUow
+    public class UnitOfWork : IUow
     {
         private PizzaShopContext context = new PizzaShopContext();
         private GenericRepository<Pizza> _pizzaRepository;
         private GenericRepository<User> _userRepository;
         private bool _disposed = false;
 
-        
+
 
         //public GenericRepository<Pizza> PizzaRepository
         //{
@@ -66,6 +66,7 @@ namespace Infraestructures.UOW
 
         public int SaveChanges()
         {
+
             return context.SaveChanges();
         }
 
