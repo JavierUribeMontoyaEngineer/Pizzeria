@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +28,12 @@ namespace REST
             // Get your HttpConfiguration.
             var config = GlobalConfiguration.Configuration;
 
-            // Register your Web API controllers.
+            // Registra los controllers automaticamente si la nomenclatura terminan en Controller
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            // OPTIONAL: Register the Autofac filter provider.
-            builder.RegisterWebApiFilterProvider(config);
+            //El resto se registran manualmente
+            builder.Register(c => new PizzaService()).As<IPizzaService>().InstancePerRequest();
 
-            // OPTIONAL: Register the Autofac model binder provider.
-            builder.RegisterWebApiModelBinderProvider();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
