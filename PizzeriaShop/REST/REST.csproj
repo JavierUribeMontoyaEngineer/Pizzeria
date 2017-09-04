@@ -267,20 +267,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Desktop\Pizzeria-Javier\PruebaConceptoAutenticacion\Infraestructures\Infraestructures.csproj">
-      <Project>{6b4f2137-a170-4702-8a7c-412a9f211004}</Project>
-      <Name>Infraestructures</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Desktop\Pizzeria-Javier\PruebaConceptoAutenticacion\Model\Model.csproj">
-      <Project>{2e46c170-2305-4c96-8ee6-9974792c62cc}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Desktop\Pizzeria-Javier\PruebaConceptoAutenticacion\Services\Services.csproj">
-      <Project>{0dc5888e-364f-4954-a1c8-7a7e206a3f21}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

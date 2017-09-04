@@ -10,14 +10,12 @@ using System.Threading.Tasks;
 namespace Services
 {
     
-    public class PizzaService : BaseService
+    public class PizzaService : BaseService, IPizzaService
     {
         private readonly IUow _unitOfWork;
-        private readonly PizzaShopContext _pizzaShopContext;
 
-        public PizzaService(PizzaShopContext context, IUow unitOfWork) : base(context)
+        public PizzaService( IUow unitOfWork) : base(unitOfWork)
         {
-            _pizzaShopContext = context;
             _unitOfWork = unitOfWork;
         }
 
@@ -41,10 +39,7 @@ namespace Services
         public void Update(Pizza pizzaUpdate)
         {
             _unitOfWork.Set<Pizza>().Attach(pizzaUpdate);
-            //_unitOfWork.En
-            _pizzaShopContext.Entry(pizzaUpdate).State = EntityState.Modified;
-
+            _unitOfWork.SetModified(pizzaUpdate);
         }
-
     }
 }

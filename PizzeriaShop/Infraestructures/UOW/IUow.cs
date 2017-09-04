@@ -11,5 +11,6 @@ namespace Infraestructures.UOW
     {
         int SaveChanges();
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
+        void SetModified<TEntity>(TEntity entity) where TEntity : class;
     }
 }
