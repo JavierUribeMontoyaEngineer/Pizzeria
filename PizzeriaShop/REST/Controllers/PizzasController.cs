@@ -10,34 +10,33 @@ using Model;
 
 namespace API_REST.Controllers
 {
-    [AllowCrossSite]
     public class PizzasController : ApiController
     {
         public PizzaService _pizzaService = new PizzaService();
 
-        private List<Pizza> getPizzasBD()
-        {
+        //private List<Pizza> getPizzasBD()
+        //{
            
-            var pizzas = new List<Pizza>()
-            {               new Pizza()
-                {
-                    Name = "Margarita",
-                    Ingredients = new List<Ingredient>
-                    {
-                        new Ingredient{Name = "queso"}
-                    }
-                },
-                new Pizza()
-                {
-                    Name = "Napolitana",
-                    Ingredients = new List<Ingredient>
-                    {
-                        new Ingredient{Name = "queso"}
-                    }
-               }
-            };
-            return pizzas;
-        }
+        //    var pizzas = new List<Pizza>()
+        //    {               new Pizza()
+        //        {
+        //            Name = "Margarita",
+        //            Ingredients = new List<Ingredient>
+        //            {
+        //                new Ingredient{Name = "queso"}
+        //            }
+        //        },
+        //        new Pizza()
+        //        {
+        //            Name = "Napolitana",
+        //            Ingredients = new List<Ingredient>
+        //            {
+        //                new Ingredient{Name = "queso"}
+        //            }
+        //       }
+        //    };
+        //    return pizzas;
+        //}
 
         // GET api/pizzas
         public IEnumerable<Pizza> Get()
