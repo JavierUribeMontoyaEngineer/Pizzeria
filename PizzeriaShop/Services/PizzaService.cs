@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    
+
     public class PizzaService : BaseService, IPizzaService
     {
         private readonly IUow _unitOfWork;
 
-        public PizzaService( IUow unitOfWork) : base(unitOfWork)
+        public PizzaService(IUow unitOfWork) : base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using Infraestructures.UOW;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,9 @@ namespace REST
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             //El resto se registran manualmente
-            builder.Register(c => new PizzaService()).As<IPizzaService>().InstancePerRequest();
+            builder.Register(c => new UnitOfWork()).As<IUow>().InstancePerRequest();
+            builder.RegisterType<PizzaService>().InstancePerRequest();
+
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
