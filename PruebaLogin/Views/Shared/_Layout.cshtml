@@ -17,11 +17,16 @@
         }
     </style>
 </head>
-<body layout="row" ng-app="cuerpo">
+<body layout="row" ng-app="pizzeria_app">
+@if (Request.IsAuthenticated)
+{
     <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 hide-print md-closed ng-isolate-scope _md md-locked-open" md-component-id="left" hide-print="" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
+
         @Html.Partial("_LogoPartial")
         @Html.Partial("_SideBarPartial")
     </md-sidenav>
+}
+
     <div layout="column" tabindex="-1" role="main" flex="" class="layout-column flex">
         @Html.Partial("_ToolBarPartial")
         @RenderBody()
@@ -33,7 +38,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
         <!-- Angular Material Library -->
         <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-        <script src="~/Scripts/cuerpo.js"></script>
+        <script src="~/Scripts/src/pizzeria_app.js"></script>
         @RenderSection("scripts", required: false)
 </body>
 

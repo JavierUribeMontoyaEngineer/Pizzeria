@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('cuerpo', ['ngMaterial', 'ngMessages']).controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    angular.module('pizzeria_app', ['ngMaterial', 'ngMessages']).controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
 
         function debounce(func, wait, context) {
@@ -38,7 +38,6 @@
     })
         .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
             $scope.close = function () {
-                // Component lookup should always be available since we are not using `ng-if`
                 $mdSidenav('left').close()
                     .then(function () {
                         $log.debug("close LEFT is done");
