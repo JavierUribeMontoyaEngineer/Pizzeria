@@ -6,9 +6,10 @@
         @Html.AntiForgeryToken()
 
         <md-button>
-            @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @*@Html.ActionLink(User.Identity.GetUserName(),"Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+            <i class="material-icons">person</i>
         </md-button>
-        <md-button><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+        <md-button title="Logout"><a href="javascript:document.getElementById('logoutForm').submit()"><i class="material-icons">exit_to_app</i></a>
         </md-button>
     }
 }

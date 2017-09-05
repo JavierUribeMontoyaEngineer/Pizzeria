@@ -18,10 +18,21 @@
             @Html.AntiForgeryToken()
             <div id="socialLoginList">
                 <p>
-                    @foreach (AuthenticationDescription p in loginProviders) {
-                        <md-button  class="md-raised md-primary" type="submit" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Inicie sesión con su cuenta @p.Caption">
-                            <i class="material-icons">@p.AuthenticationType</i>
-                    </md-button>
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        if (p.Caption == "Facebook")
+                        {
+                            <md-button type="submit" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Inicie sesión con su cuenta @p.Caption">
+                                <img src="~/img/facebook-box.png" />
+                            </md-button>
+                        }
+                        if(p.Caption == "Google")
+                        {
+                            <md-button type="submit" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Inicie sesión con su cuenta @p.Caption">
+                                <img src="~/img/google.png" />
+                            </md-button>
+                        }
+
                     }
                 </p>
             </div>
