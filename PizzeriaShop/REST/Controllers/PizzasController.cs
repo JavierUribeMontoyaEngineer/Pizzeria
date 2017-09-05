@@ -14,15 +14,34 @@ namespace REST.Controllers
     {
         public IPizzaService _pizzaService { get; set; }
 
+        private void generatePizza()
+        {
+            var ingredients = new List<Ingredient>()
+                {
+                    new Ingredient{ Name="Queso",Price = 4},
+                    new Ingredient{ Name="Queso",Price = 8}
+
+                };
+            var pizza = new Pizza(Guid.NewGuid())
+            {
+                Name = "Margarita"
+            };
+            pizza.Ingredients = ingredients;
+            _pizzaService.CreatePizza(pizza);
+        }
+
         public PizzasController(IPizzaService pizzaService)
         {
-            _pizzaService = pizzaService;          
+            _pizzaService = pizzaService;
+            //Este metodo es para rellenar la BD con alguna piza hecha de testeo
+            //generatePizza();
         }
 
         // GET api/pizzas
         public IEnumerable<Pizza> Get()
         {
-            return _pizzaService.GetAllPizzas();
+            return  _pizzaService.GetAllPizzas();
+          
         }
 
         // GET api/pizzas/2
