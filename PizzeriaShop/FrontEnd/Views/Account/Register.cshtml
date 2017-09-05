@@ -1,0 +1,52 @@
+﻿@using FrontEnd.Models
+@model RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+<md-content class="row" ng-init="model.email='@Model.Email'">
+    <md-content layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="registerForm">
+        <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+            <h2>@ViewBag.Title.</h2>
+            <section id="registerForm">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", name = "registerForm" }))
+                {
+                    @Html.ValidationSummary()
+                    @Html.AntiForgeryToken()
+                    <h4>Cree una cuenta nueva.</h4>
+                    <hr />
+                        <md-content layout-padding>
+                            <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label>Correo electrónico</label>
+                                    <input required name="email" type="email" ng-model="model.email" ng-pattern="'^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$'">
+                                    <ng-messages for="registerForm.email.$error" ng-if="registerForm.email.$dirty" role="alert">
+                                        <ng-message when="required">Email no puede estar vacio</ng-message>
+                                        <ng-message when="pattern">Email no valido</ng-message>
+                                    </ng-messages>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label for="pass">Contraseña</label>
+                                    <input required name="password" type="password" ng-pattern="" ng-minLength="6" ng-model="model.password">
+                                    <ng-messages for="registerForm.password.$error" ng-if="registerForm.password.$dirty" role="alert">
+                                        <ng-message when="required">Contraseña no puede estar vacia</ng-message>
+                                        <ng-message when="minlength">Contraseña demasiado corta</ng-message>
+                                        <ng-message when="pattern">Debe contener mayuscula,minuscula y numero :)</ng-message>
+                                    </ng-messages>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label for="pass">Confirmar Contraseña</label>
+                                    <input required name="confirmpassword" type="password" ng-model="model.confirm">
+                                    <ng-messages for="registerForm.confirmpassword.$error" ng-if="registerForm.confirmpassword.$dirty" role="alert">
+                                        @*<ng-message when="compare-to">La scpontraseñas no coinciden</ng-message>*@
+                                    </ng-messages>
+                                </md-input-container>
+                                <md-container class="md-block" flex-gt-xs>
+                                    <md-button type="submit" class="md-raised md-primary">Registrarse</md-button>
+                                </md-container>
+                            </div>
+                        </md-content>
+                }
+            </section>
+        </md-card>
+    </md-content>
+</md-content>
