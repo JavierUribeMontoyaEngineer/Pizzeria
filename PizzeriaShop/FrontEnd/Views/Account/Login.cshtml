@@ -1,0 +1,47 @@
+﻿@using FrontEnd.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<md-content class="row">
+    <md-content layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form">
+        <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+            <h2>@ViewBag.Title.</h2>
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                    @Html.AntiForgeryToken()
+                    <h4>Use una cuenta local para iniciar sesión.</h4>
+                    <hr />
+                    <md-content layout-padding>
+                        <div ng-app="loginForm" ng-init="model.email='@Model.Email'">
+                            <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label for="email">Correo electrónico</label>
+                                    <input required name="email" type="email" ng-model="model.email">
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-xs>
+                                    <label for="pass">Contraseña</label>
+                                    <input required name="password" type="password" ng-model="model.password">
+                                </md-input-container>
+                                <md-container class="md-block" flex-gt-xs>
+                                    <md-button type="submit" class="md-raised md-primary">Iniciar sesión</md-button>
+                                </md-container>
+                                <md-container class="md-block" flex-gt-xs layout-align="center center">
+                                    <md-button type="submit" class="md-raised md-primary">
+                                        @Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", style = "text-decoration:none;color:white" })
+                                    </md-button>
+                                </md-container>
+                            </div>
+                        </div>
+                    </md-content>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                }
+
+            </section>
+        </md-card>
+        <md-card-actions layout="column" class="layout-column">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </md-card-actions>
+    </md-content>
