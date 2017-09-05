@@ -18,14 +18,7 @@
         }
     </style>
 </head>
-<body layout="row" ng-app="pizzeria_app">
-
-        <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 hide-print md-closed ng-isolate-scope _md md-locked-open" md-component-id="left" hide-print="" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
-            @Html.Partial("_LogoPartial")
-            @Html.Partial("_SideBarPartial")
-        </md-sidenav>
-
-    <div layout="column" tabindex="-1" role="main" flex="" class="layout-column flex">
+<body layout="row" ng-app="pizzeria_app"> <div layout="column" tabindex="-1" role="main" flex="" class="layout-column flex">
         @Html.Partial("_ToolBarPartial")
         @RenderBody()
     </div>
