@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Pizzeria</title>
+    <link href="~/Content/angular-material/angular-material.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+            color: white;
+        }
+
+        .listdemoBasicUsage md-divider {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        .selectdemoBasicUsage md-input-container {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body layout="row" ng-app="pizzeria_app">
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 hide-print md-closed ng-isolate-scope _md md-locked-open" md-component-id="left" hide-print="" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
+        @Html.Partial("_LogoPartial")
+        @Html.Partial("_SideBarPartial")
+    </md-sidenav>
+    <div layout="column" tabindex="-1" role="main" flex="" class="layout-column flex">
+        @Html.Partial("_ToolBarPartial")
+        @RenderBody()
+    </div>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="~/Scripts/ng-file-upload-shim.js"></script>
+    <script src="~/Scripts/ng-file-upload.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="~/Scripts/src/pizzeria_app.js"></script>
+    <script src="~/Scripts/src/img_uploader.js"></script>
+    <script src="~/Scripts/src/img_viewer.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
