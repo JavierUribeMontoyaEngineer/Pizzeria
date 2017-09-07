@@ -10,9 +10,9 @@
     <md-content>
         <md-list-item class="md-3-line">
             <div class="md-list-item-text" layout="column">
-                <md-button class="md-primary">@Html.ActionLink("Ver Pizzas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "text-decoration:none"})</md-button>
-                <md-button class="md-primary">
-                @Html.ActionLink("Añadir Pizzas", "CreatePizza", "Pizza", routeValues: null, htmlAttributes: new { id = "createPizzaLink", style = "text-decoration:none"})
+                <md-button class="md-primary" ng-href="/Pizza/List">Ver Pizzas@*@Html.ActionLink("Ver Pizzas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "text-decoration:none"})*@</md-button>
+                <md-button class="md-primary" ng-href="/Pizza/Add">Añadir Pizzas
+                @*@Html.ActionLink("Añadir Pizzas", "CreatePizza", "Pizza", routeValues: null, htmlAttributes: new { id = "createPizzaLink", style = "text-decoration:none"})*@
                 </md-button>
             </div>
         </md-list-item>
